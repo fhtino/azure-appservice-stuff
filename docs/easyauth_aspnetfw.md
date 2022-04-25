@@ -4,15 +4,15 @@
 
 <br/>
 
-Web applications deployed in Azure App Service can be protected with different technique. The easiest to use is the integrated App Service Authentication also known as “Easy Auth” [[Link]](https://docs.microsoft.com/en-us/azure/app-service/overview-authentication-authorization)
-With some clicks, without modifying the running application and in just few minutes,
-it is possible to protected a web site activating authentication based on different providers: Microsoft Identity, Google, Facebook, Twitter, etc.
+Web applications deployed in Azure App Service can be protected in many ways. The easiest one to use is the integrated App Service Authentication also known as “Easy Auth” [[Link]](https://docs.microsoft.com/en-us/azure/app-service/overview-authentication-authorization)
+With few clicks, without modifying the running application and in just a copuple of minutes,
+it is possible to protected a web site with authentication from different providers: Microsoft Identity, Google, Facebook, Twitter, etc.
 
 <p align="center"><img src="easyauth_aspnetfw_imgs/1.png" width="400"></p>
 
 <br/>
 
-This walkthrough will show how to protect a web-site, add roles management, allow public access to some area and restrict access to reserved ones. It will also propose a solution for working and developing locally without EasyAuth.
+This walkthrough will show how to protect a web-site, add roles management, allow public access to some area and restrict access to reserved ones. It will also propose a possible solution for developing locally without EasyAuth.
 
 Steps:
  - activate EasyAuth on an existing and deployed web-application
