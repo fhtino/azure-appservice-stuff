@@ -1,0 +1,49 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="web472.Site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="site.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div style="background-color: lightblue;">
+            <table cellspacing="8">
+                <tr>
+                    <td><a href="/">Home</a></td>
+                    <td><a href="/public/">Public area</a></td>
+                    <td><a href="/useronly/">User area</a></td>
+                    <td><a href="/adminonly/">Admin area</a></td>
+                    <td style="width: 100px;">&nbsp;</td>
+                    <td><a href="/login.aspx">Login</a></td>
+                    <td><a href="/logout.aspx">Logout</a></td>
+                </tr>
+            </table>
+        </div>
+        <div style="background-color: lightgray; padding: 5px;">
+            <table style="font-size: small;">
+                <tr>
+                    <td>Logged user:</td>
+                    <td>
+                        <%if (HttpContext.Current.User.Identity.IsAuthenticated)
+                            { %>
+                                <%=HttpContext.Current.User.Identity.Name %> 
+                                (<%=HttpContext.Current.User.Identity.IsAuthenticated %>)
+                                [<%=HttpContext.Current.User.Identity.AuthenticationType %>]
+                                {<a href="/dumpuserinfo.aspx">Dump user info</a>}
+                        <% } %>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
