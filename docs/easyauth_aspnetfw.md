@@ -4,11 +4,11 @@
 
 <br/>
 
-Web applications deployed in Azure App Service can be protected with different technique. The easiest to use is the integrated App Service Authentication also known as ìEasy Authî [[Link]](https://docs.microsoft.com/en-us/azure/app-service/overview-authentication-authorization)
+Web applications deployed in Azure App Service can be protected with different technique. The easiest to use is the integrated App Service Authentication also known as ‚ÄúEasy Auth‚Äù [[Link]](https://docs.microsoft.com/en-us/azure/app-service/overview-authentication-authorization)
 With some clicks, without modifying the running application and in just few minutes,
 it is possible to protected a web site activating authentication based on different providers: Microsoft Identity, Google, Facebook, Twitter, etc.
 
-<center><img src="easyauth_aspnetfw_imgs/1.png" width="400"></center>
+<p align="center"><img src="easyauth_aspnetfw_imgs/1.png" width="400"></p>
 
 <br/>
 
@@ -26,26 +26,26 @@ Steps:
 Select the App Service --> Authentication --> Add Identity provider\
 Depending on the choosen provider, select the appropriate options. In this case, Microsoft is configured to allow authentication of user from any Azure tenant and personal Microsoft account (see note below for details and tips). After confirming, an App will be created in the current Azure Active Directory. Other providers have different options.
 
-<center><img src="easyauth_aspnetfw_imgs/2.png" width="400"></center>
+<p align="center"><img src="easyauth_aspnetfw_imgs/2.png" width="400"></p>
 
 The configuration panel after adding Microsoft and Google providers:
 
-<center><img src="easyauth_aspnetfw_imgs/4.png" width="500"></center>
+<p align="center"><img src="easyauth_aspnetfw_imgs/4.png" width="500"></p>
 
 The EasyAuth can be configured to force authentication on the whole web-site or to allow even unauthenticated users. The latter is useful if the web-site has both public/anonymous pages and protected areas.
 
-<center><img src="easyauth_aspnetfw_imgs/3.png" width="300"></center>
+<p align="center"><img src="easyauth_aspnetfw_imgs/3.png" width="300"></p>
 
 
 ### Custom domain
 
 If the App Service uses a custom domain, the linked Azure AD application must be updated to allow redirects to the custom domain, too.
 
-<center><img src="easyauth_aspnetfw_imgs/7.png" width="600"></center>
+<p align="center"><img src="easyauth_aspnetfw_imgs/7.png" width="600"></p>
 
 Add `https://<my-web-site-custom-domain>/.auth/login/aad/callback` alongside the existing one `https://<myappservice>.azurewebsites.net/.auth/login/aad/callback` to solve the issue.
 
-<center><img src="easyauth_aspnetfw_imgs/8.png" width="500"></center>
+<p align="center"><img src="easyauth_aspnetfw_imgs/8.png" width="500"></p>
 
 
 ### Notes about Microsoft provider
@@ -53,22 +53,22 @@ Add `https://<my-web-site-custom-domain>/.auth/login/aad/callback` alongside the
 Microsoft Identity provider has an undocumented - as far as I know - option that is foundamental to allow smooth login to users coming from other Azure tenants. The default Issuer URL is in the form
 `https://sts.windows.net/<your_tenant_id>/v2.0` allowing to authenticate users belonging to that tenent. Other tenants users get error like "selected user does not exist in tenant [aaaa]... The account needs to be added as an extenal user in the tenant first."
 
-<center><img src="easyauth_aspnetfw_imgs/6.png" width="200"></center>
+<p align="center"><img src="easyauth_aspnetfw_imgs/6.png" width="200"></p>
 
 To autheticate all Microsoft accounts and tenants, change the Issuer URL to `https://login.microsoftonline.com/common/v2.0`
 
-<center><img src="easyauth_aspnetfw_imgs/5.png" width="500"></center>
+<p align="center"><img src="easyauth_aspnetfw_imgs/5.png" width="500"></p>
 
 
 ### Notes about Google
 
 Before activating the provider on Easy Auth, a credential must be created under Google Developer console. Add the required url and then [create]. The Cliend ID and Secret must be copied into the form for Google provider in Azure.
 
-<center><img src="easyauth_aspnetfw_imgs/9.png" width="500"></center>
+<p align="center"><img src="easyauth_aspnetfw_imgs/9.png" width="500"></p>
 
 <br/>
 
-<center><img src="easyauth_aspnetfw_imgs/10.png" width="300"></center>
+<p align="center"><img src="easyauth_aspnetfw_imgs/10.png" width="300"></p>
 
 
 ## Web application modifications for a better integration
